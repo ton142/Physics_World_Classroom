@@ -1,6 +1,4 @@
 ﻿namespace VRTK {
-    using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
 
     public class TakeScreenshot : MonoBehaviour {
@@ -14,7 +12,7 @@
 
         void takePhoto(object sender, ControllerInteractionEventArgs e) {
                 audio.Play();
-                ScreenCapture.CaptureScreenshot("Screenshot" + photoCount + ".png");
+                Application.CaptureScreenshot("Screenshot" + photoCount + ".png");
                 photoCount++;
         }
     }
