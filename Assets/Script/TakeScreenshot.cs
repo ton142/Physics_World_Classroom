@@ -14,7 +14,7 @@
 
         void takePhoto(object sender, ControllerInteractionEventArgs e) {
                 audio.Play();
-                ScreenCapture.CaptureScreenshot("Screenshot" + photoCount + ".png");
+                Application.CaptureScreenshot("Screenshot" + photoCount + ".png");
                 photoCount++;
         }
     }
