@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class DrawDots : MonoBehaviour {
 
-    public float speed = 5.0f; // the initial speed
-    public float angle = 30.0f;// give an initial angle
+    public float speed = 5.0f; // the initial speed in m/s
+    public float angle = 85.0f;// give an initial angle in degrees
 
     public GameObject variableText;
     public GameObject titleText; // display how many points along trajectory
@@ -75,7 +75,6 @@ public class DrawDots : MonoBehaviour {
 
             //maxDistance = positions[index - 1].x; // distance from start point to the last dot
             maxHeight = positions[index / 2].y;
-
             return;
         }
 

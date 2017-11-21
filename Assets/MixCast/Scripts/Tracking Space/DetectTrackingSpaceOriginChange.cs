@@ -31,7 +31,7 @@ namespace BlueprintReality.MixCast
 
         void Start()
         {
-            if (VRDevice.isPresent)
+            if (UnityEngine.XR.XRDevice.isPresent)
             {
                 var oldOrigin = MixCast.Settings.oculusOrigin;
                 var newOrigin = TrackingSpaceOrigin.GetOriginOffsetData();
