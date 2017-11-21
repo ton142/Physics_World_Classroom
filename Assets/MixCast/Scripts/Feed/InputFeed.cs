@@ -128,8 +128,8 @@ namespace BlueprintReality.MixCast
                 Transform roomTransform = Camera.main.transform.parent;
                 nextFrame.data.playerHeadPos = Camera.main.transform.position;
                 nextFrame.data.playerBasePos = roomTransform.TransformPoint(new Vector3(Camera.main.transform.localPosition.x, 0, Camera.main.transform.localPosition.z));
-                nextFrame.data.playerLeftHandPos = roomTransform.TransformPoint(GetTrackingPosition(UnityEngine.VR.VRNode.LeftHand));
-                nextFrame.data.playerRightHandPos = roomTransform.TransformPoint(GetTrackingPosition(UnityEngine.VR.VRNode.RightHand));
+                nextFrame.data.playerLeftHandPos = roomTransform.TransformPoint(GetTrackingPosition(UnityEngine.XR.XRNode.LeftHand));
+                nextFrame.data.playerRightHandPos = roomTransform.TransformPoint(GetTrackingPosition(UnityEngine.XR.XRNode.RightHand));
 
                 FramePlayerData oldFrameData = frames.OldestFrameData;
 
@@ -213,13 +213,13 @@ namespace BlueprintReality.MixCast
             return d / f;
         }
 
-        Vector3 GetTrackingPosition(UnityEngine.VR.VRNode node)
+        Vector3 GetTrackingPosition(UnityEngine.XR.XRNode node)
         {
-            if (node == UnityEngine.VR.VRNode.Head)
+            if (node == UnityEngine.XR.XRNode.Head)
                 return Camera.main.transform.localPosition;
 
-            if (UnityEngine.VR.VRDevice.isPresent)
-                return UnityEngine.VR.InputTracking.GetLocalPosition(node);
+            if (UnityEngine.XR.XRDevice.isPresent)
+                return UnityEngine.XR.InputTracking.GetLocalPosition(node);
 
 #if UNITY_EDITOR && MIXCAST_STEAMVR
             //SteamVR_ControllerManager controllerManager = FindObjectOfType<SteamVR_ControllerManager>();

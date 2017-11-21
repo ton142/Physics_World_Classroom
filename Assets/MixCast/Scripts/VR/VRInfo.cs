@@ -21,22 +21,22 @@ namespace BlueprintReality.MixCast
     {
         public static bool IsDeviceOculus()
         {
-            return VRSettings.loadedDeviceName == "Oculus";
+            return UnityEngine.XR.XRSettings.loadedDeviceName == "Oculus";
         }
 
         public static bool IsDeviceOpenVR()
         {
-            return VRSettings.loadedDeviceName == "OpenVR";
+            return UnityEngine.XR.XRSettings.loadedDeviceName == "OpenVR";
         }
 
         public static bool IsVRModelVive()
         {
-            return VRDevice.model.ToLower().Contains("vive");
+            return UnityEngine.XR.XRDevice.model.ToLower().Contains("vive");
         }
 
         public static bool IsVRModelOculus()
         {
-            return VRDevice.model.ToLower().Contains("rift");
+            return UnityEngine.XR.XRDevice.model.ToLower().Contains("rift");
         }
 
         public static string GetDeviceSerial(uint deviceIndex)
