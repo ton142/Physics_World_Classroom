@@ -1,6 +1,7 @@
 ﻿namespace VRTK
 {
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     public class CreateDots : MonoBehaviour
     {
@@ -29,7 +30,7 @@
         }
 
         private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e)          // if Vive trigger is pressed
-		{
+        {
             if (count < spacedot.dot.Count) {
                 dott.GetComponent<Renderer>().material = startingMaterial;
                 Vector3 position = transform.position;                                              // get position of the controller
@@ -38,8 +39,30 @@
                 displayDots(position, count);
                 count++;
                 displayTrajectory();
+            } else {
+                switch (SceneManager.GetActiveScene().name) {
+                    case "TestScene":
+                        SceneManager.LoadScene("TestAngle30");
+                        break;
+                    case "TestAngle30":
+                        SceneManager.LoadScene("TestSpeed10");
+                        break;
+                    case "TestSpeed10":
+                        SceneManager.LoadScene("TestSpeed20");
+                        break;
+                    case "TestSpeed20":
+                        SceneManager.LoadScene("TestGravity5");
+                        break;
+                    case "TestGravity5":
+                        SceneManager.LoadScene("TestGravity15");
+                        break;
+                    default:
+                        SceneManager.LoadScene("TestScene");
+                        break;
+
+                }
             }
-		}
+        }
 
         void displayDots(Vector3 position, int index) {
             float dist = 0;

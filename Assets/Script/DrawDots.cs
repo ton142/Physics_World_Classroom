@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class DrawDots : MonoBehaviour {
 
-    public float speed = 5.0f; // the initial speed in m/s
-    public float angle = 85.0f;// give an initial angle in degrees
+    public float speed = 15.0f; // the initial speed in m/s
+    public float angle = 45.0f;// give an initial angle in degrees
+    public float gravity = Physics.gravity.magnitude;
 
     public GameObject variableText;
     public GameObject titleText; // display how many points along trajectory
@@ -28,7 +29,7 @@ public class DrawDots : MonoBehaviour {
     private float Velocity_Y = 0.0f;
     private float Velocity_X = 0.0f;
     private int index = 0;
-    private float gravity = Physics.gravity.magnitude;
+    //private float gravity = Physics.gravity.magnitude;
     private List<Vector3> positions = new List<Vector3>();
     private LineRenderer trajectory;
     private bool startDrawing;

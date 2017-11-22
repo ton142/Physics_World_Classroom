@@ -20,3 +20,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/TestScene.unity
     guid: aa7c4b9f3206445e2893567ade312395
+  - enabled: 1
+    path: Assets/_Scenes/TestAngle30.unity
+    guid: c06955d0c048df243b279c5630f29db9
+  - enabled: 1
+    path: Assets/_Scenes/TestGravity5.unity
+    guid: eb9833dd648bf9848966ae4519dde57d
+  - enabled: 1
+    path: Assets/_Scenes/TestGravity15.unity
+    guid: 0612add87a13c724b8805e0a28a7a7de
+  - enabled: 0
+    path: Assets/_Scenes/TestScene2.unity
+    guid: f135fdbf62e433745b92cf4322a45a00
+  - enabled: 1
+    path: Assets/_Scenes/TestSpeed10.unity
+    guid: c59564beaf56d0a42a401b07b9f3570e
+  - enabled: 1
+    path: Assets/_Scenes/TestSpeed20.unity
+    guid: 49e2de0c63a2aed49816fcf6f9072340
