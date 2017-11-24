@@ -13,9 +13,12 @@ public class DrawDots : MonoBehaviour {
     public GameObject path;
     public GameObject startPoint;
     public GameObject dott; //creating dots
+    public GameObject scoreText;
 
     // used by other classes
     public List<GameObject> dot = new List<GameObject>();   // found in CreateDots
+    public List<Vector3> positions = new List<Vector3>(); // list of correct dots also found in CreateDots
+
     //public float maxDistance;                               // found in ScaleRig; DON'T CHANGE ON INSEPCTOR
     public float maxHeight;                                 // found in ScaleRig
     
@@ -29,8 +32,7 @@ public class DrawDots : MonoBehaviour {
     private float Velocity_Y = 0.0f;
     private float Velocity_X = 0.0f;
     private int index = 0;
-    //private float gravity = Physics.gravity.magnitude;
-    private List<Vector3> positions = new List<Vector3>();
+    //private float gravity = Physics.gravity.magnitude
     private LineRenderer trajectory;
     private bool startDrawing;
 
