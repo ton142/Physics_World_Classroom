@@ -19,6 +19,8 @@
         public Material newMaterial;
         public Material startingMaterial;
 		public LineRenderer trajectory;
+        private Vector3 positionOfBall;
+        private GameObject positionBall;
 
         //for calculating diffference
         public  DrawDots spacedot;
@@ -28,6 +30,10 @@
 
         private void Start()
         {
+            //renders a transparent ball on the location it would be put down if the trigger is pressed
+            //positionBall = Instantiate(dott, positionOfBall, transform.rotation);
+            dott.GetComponent<Renderer>().material = startingMaterial;
+
             if (GetComponent<VRTK_ControllerEvents>() == null)
             {
                 return;
@@ -35,16 +41,20 @@
             GetComponent<VRTK_ControllerEvents>().TriggerPressed += new ControllerInteractionEventHandler(DoTriggerPressed);
         }
 
+        private void Update() {
+            positionOfBall = new Vector3(transform.position.x, transform.position.y + 0.05f, 0); // set the position for the ball to be created 0.05 away from the controller on the z=0 plane
+            positionBall.transform.position = positionOfBall;
+        }
+        
+
         private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e)          // if Vive trigger is pressed
         {
             if (count < spacedot.dot.Count) {
 
                 dott.GetComponent<Renderer>().material = startingMaterial;
-                Vector3 position = transform.position;                                              // get position of the controller
-                position.y += 0.05f;                                                                // set the position for the ball to be created 0.05 away from the controller
-                Instantiate(dott, new Vector3(position.x, position.y, 0), transform.rotation);  // keep z-position at 0 so that the dots stay along the trajectory line
-                redDots.Add(new Vector3(position.x, position.y, 0)); 
-                displayDots(position, count);
+                Instantiate(dott, positionOfBall, transform.rotation);  // keep z-position at 0 so that the dots stay along the trajectory line
+                redDots.Add(positionOfBall); 
+                displayDots(positionOfBall, count);
                 //for (int i = 0; i < redDots.Count; i++) { 
                    // Debug.Log(redDots[i].ToString("F4")); // print out the position of each new guess
                    // Debug.Log("redDots length:" + redDots.Count.ToString()); // print out the length of the array of guesses

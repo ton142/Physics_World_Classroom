@@ -58,7 +58,7 @@ public class DrawDots : MonoBehaviour {
     }
 
     void displayText() {
-        variableText.GetComponent<Text>().text = "\nVariables:\n Velocity = " + speed + "m/s \n Angle = " + angle + " degrees \n Gravity = " + gravity + " N";
+        variableText.GetComponent<Text>().text = "\nVariables:\n Velocity = " + speed + "m/s \n Angle = " + angle + " degrees \n Gravity = " + gravity + " m/s\u00B2";
         titleText.GetComponent<Text>().text = "Can you guess " + addDot + " points along this unknown trajectory?"; // allow the # of points to change depending on tha trajectory
     }
 
